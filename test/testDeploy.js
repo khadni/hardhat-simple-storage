@@ -19,4 +19,16 @@ describe("SimpleStorage", function () {
     const currentValue = await simpleStorage.retrieve();
     assert.equal(currentValue.toString(), expectedValue);
   });
+  it("Should push a new person (struct) in people array when we call addPerson", async function () {
+    const expectedName = "José";
+    const expectedFavNum = 55;
+    const transactionResponse = await simpleStorage.addPerson(
+      expectedName,
+      expectedFavNum
+    );
+    await transactionResponse.wait(1);
+    const currentValue = await simpleStorage.people(0);
+    assert.equal(expectedFavNum, currentValue[0]);
+    assert.equal(expectedName, currentValue[1]);
+  });
 });

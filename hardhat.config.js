@@ -44,7 +44,7 @@ module.exports = {
   },
   solidity: "0.8.8",
   gasReporter: {
-    enabled: false,
+    enabled: true,
     outputFile: "gas-report.txt",
     noColors: true,
     currency: "USD",
